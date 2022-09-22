@@ -58,12 +58,21 @@ const categoryController = {
   },
 
   insertCategory: async (req, res, next) => {
+    const PORT = process.env.PORT || 5000;
+    const DB_HOST = process.env.DB_HOST || "localhost";
+    const photo = req.file.filename;
     const { name } = req.body;
     const {
       rows: [count],
     } = await countData();
     const id = Number(count.count) + 1;
-    insert(id, name)
+    const data = {
+      id,
+      name,
+      photo: `http://${DB_HOST}:${PORT}/img/${photo}`,
+    };
+
+    insert(data)
       .then((result) =>
         commonHelper.response(res, result.rows, 201, "Category created")
       )

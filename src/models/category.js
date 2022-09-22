@@ -14,8 +14,11 @@ const selectAll = ({ limit, offset, sort, sortby }) => {
 const select = (id) => {
   return Pool.query(`SELECT * FROM category WHERE id=${id}`);
 };
-const insert = (id, name) => {
-  return Pool.query(`INSERT INTO category(id,name) VALUES ('${id}','${name}')`);
+const insert = (data) => {
+  const { id, name, photo } = data;
+  return Pool.query(
+    `INSERT INTO category(id,name,photo) VALUES ('${id}','${name}','${photo}')`
+  );
 };
 const update = (id, name) => {
   return Pool.query(`UPDATE category SET name='${name}' WHERE id='${id}'`);

@@ -25,6 +25,7 @@ app.use((err, req, res, next) => {
     message: messageError,
   });
 });
+
 app.listen(PORT, () => {
-  console.log(`server running on http://${DB_HOST}:${PORT}`);
+  console.log(`server running on http://localhost:${PORT}`);
 });

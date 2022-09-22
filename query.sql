@@ -1,13 +1,13 @@
 CREATE DATABASE TOKO;
 
-CREATE TABLE product(
-    id SERIAL PRIMARY KEY,
-    name VARCHAR NOT NULL,
-    stock INT NOT NULL,
-    price INT NOT NULL,
-    photo VARCHAR NOT NULL,
-    description VARCHAR NOT NULL
-);
+create table products(
+id varchar primary key,
+name varchar not null,
+price int not null,
+stock int not null,
+Description varchar not null,
+merk varchar not null,
+photo varchar not null);
 
 CREATE TABLE category(
     id SERIAL PRIMARY KEY,
@@ -38,6 +38,23 @@ CREATE TABLE users(
     fullname VARCHAR,
     role VARCHAR
 );
+
+CREATE TABLE sellers(
+    id VARCHAR PRIMARY KEY,
+    name VARCHAR NOT NULL,
+    email VARCHAR NOT NULL,
+    phoneNumber VARCHAR not null,
+    storeName VARCHAR not null,
+    password varchar not null
+);
+
+CREATE TABLE custommer(
+    id VARCHAR PRIMARY KEY,
+    name VARCHAR NOT NULL,
+    email VARCHAR NOT NULL,
+    password varchar not null
+);
+
 
 DROP TABLE product CASCADE;
 

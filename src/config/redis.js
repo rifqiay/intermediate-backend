@@ -1,9 +1,9 @@
-const { createClient } = require("redis");
+// const { createClient } = require("redis");
 
-const client = createClient(6379);
+// const client = createClient(6379);
 
-client.on("error", (err) => console.log("Redis Client Error", err));
+// client.on("error", (err) => console.log("Redis Client Error", err));
 
-client.connect();
+// client.connect();
 
-module.exports = client;
+// module.exports = client;

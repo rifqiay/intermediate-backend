@@ -52,7 +52,7 @@ const UserController = {
         email: user.email,
         role: user.role,
       };
-      user.token = authHelper.generateToken(payload);
+      // user.token = authHelper.generateToken(payload);
       commonHelper.response(res, user, 201, "login is successful");
     } catch (error) {
       console.log(error);
