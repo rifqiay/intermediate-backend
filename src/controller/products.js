@@ -68,34 +68,9 @@ const productController = {
       .catch((err) => res.send(err));
   },
 
-  // insertProduct: async (req, res) => {
-  //   const PORT = process.env.PORT || 5000;
-  //   const DB_HOST = process.env.DB_HOST || "localhost";
-  //   const photo = req.file.filename;
-  //   const { name, stock, price, description } = req.body;
-  //   const {
-  //     rows: [count],
-  //   } = await countData();
-  //   const id = Number(count.count) + 1;
-
-  //   const data = {
-  //     id,
-  //     name,
-  //     stock,
-  //     price,
-  //     photo: `http://${DB_HOST}:${PORT}/img/${photo}`,
-  //     description,
-  //   };
-  //   insert(data)
-  //     .then((result) =>
-  //       commonHelper.response(res, result.rows, 201, "Product created")
-  //     )
-  //     .catch((err) => res.send(err));
-  // },
-
   insertProduct: async (req, res) => {
-    const PORT = process.env.PORT || 5000;
-    const DB_HOST = process.env.DB_HOST || "localhost";
+    const PORT = process.env.PORT || 8000;
+    const PGHOST = process.env.PGHOST || "containers-us-west-45.railway.app";
     const photo = req.file.filename;
     const { name, price, merk, stock, description } = req.body;
     const id = uuidv4();
@@ -105,7 +80,7 @@ const productController = {
       price,
       merk,
       stock,
-      photo: `http://${DB_HOST}:${PORT}/img/${photo}`,
+      photo: `http://${PGHOST}:${PORT}/img/${photo}`,
       description,
     };
     insert(data)
