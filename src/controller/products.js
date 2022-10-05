@@ -80,7 +80,7 @@ const productController = {
       price,
       merk,
       stock,
-      photo: `http://${PGHOST}:${PGPORT}/img/${photo}`,
+      photo: photo,
       description,
     };
     insert(data)
