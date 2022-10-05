@@ -69,8 +69,8 @@ const productController = {
   },
 
   insertProduct: async (req, res) => {
-    const PGPORT = process.env.PGPORT || 5737;
-    const PGHOST = process.env.PGHOST || "containers-us-west-45.railway.app";
+    const PORT = process.env.PORT || 8000;
+    const PGHOST = process.env.PGHOST || "localhost";
     const photo = req.file.filename;
     const { name, price, merk, stock, description } = req.body;
     const id = uuidv4();
@@ -80,7 +80,7 @@ const productController = {
       price,
       merk,
       stock,
-      photo: photo,
+      photo: `http://${PGHOST}:${PORT}/img/${photo}`,
       description,
     };
     insert(data)
